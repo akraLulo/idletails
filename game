@@ -30,8 +30,8 @@ Let's make a game!
 	author:Lulo Rising
 	desc:Just testing what this game engine can do, for funsies.
 	updated:25/04/2026
-	//created:xx/yy/2026
-	//version:0
+	created:25/04/2026
+ version:0
 
 Settings
 	//background:
@@ -39,7 +39,7 @@ Settings
 	building cost refund:77%
 	//spritesheet:icons, 48 by 48, url.jpg
 		//use 48px by 48px sprites. toppest leftest position is [0,0]
-	//stylesheet if don't use this default https://orteil.dashnet.org/igm/stuff/basic.css
+	//stylesheet if don't use THIS default https://orteil.dashnet.org/igm/stuff/basic.css
 
 Layout
 	use default
@@ -85,7 +85,7 @@ Buildings
 //supernatural lineup
     *tree|trees
         name:Money tree|Money trees
-        desc:A lucky plant. [Attracts 1 fortune every 20 seconds]
+        desc:A lucky plant. (Attracts 1 fortune every 20 seconds)
         cost:21 bi
         cost increase:200%
         on tick:yield 0.05 bi
@@ -93,7 +93,7 @@ Buildings
 
     *neko|nekos
         name:Beckoning Kitty|Beckoning Kitties
-        desc:Maneki neko ask fortune to come into your life. [Attracts 1 fortune every 9 seconds]
+        desc:Maneki neko ask fortune to come into your life. (Attracts 1 fortune every 9 seconds)
         cost:100 bi
         on tick:yield 0.11 bi
         req:50 bi
@@ -101,7 +101,7 @@ Buildings
 
     *debt|debts
         name:Debt|Debts
-        desc:Somewhere, luck failed. Now you owe something back. [Lose fortune per second]
+        desc:Somewhere, luck failed. Now you owe something back. (Lose fortune per second)
         no buy
         on tick:lose 1 bi
         hidden when 0
@@ -159,14 +159,14 @@ Upgrades
 
         *bell|bells
         name:Bell|Bells
-        desc: With a jingle, you can now always hear when this fox is in the area. [Wisps appear more often]
+        desc: With a jingle, you can now always hear when this fox is in the area. (Wisps appear more often)
         cost:9 bi
         req:999 fawksbutton clicks
         passive:multiply frequency of glow by 0.9
 
     *cricket
         name:Lucky cricket brooch
-        desc:A relative gives you this to remind you of her wisdom. [Mysterious hazes appear less often]
+        desc:A relative gives you this to remind you of her wisdom. (Mysterious hazes appear less often)
         cost:1000 bi
         req:2 fog clicks
         passive:multiply frequency of glow by 3
