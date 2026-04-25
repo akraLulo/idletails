@@ -1,0 +1,60 @@
+//this is meant to be the source text file as I experiment
+
+/* Table of contents:
+Terms
+Let's make a game
+Settings
+Includes (optional)
+Layout
+Buttons
+Resources
+Buildings
+Upgrades
+Items
+Achivements
+Shinies (optional)
+CSS (optional)
+*/
+
+
+/* Terms:
+bi = "tail" short for "tail wag," the most basic currency
+hanabi = "firework," a special currency
+foxes = basic clickable critters
+fortune = overall collecting point of the game. buildings are non-critters that supernaturally increase fortune.
+handfed = non-automated player interactions, which give better fortune (& low risk to bad fortune)
+*/
+
+Let's make a game!
+	name:Many Tails of the Fawks
+	author:Lulo Rising
+	desc:Just testing what this game engine can do, for funsies.
+	updated:25/04/2026
+
+Settings
+	background:
+	building cost increase:111%
+	building cost refund:77%
+	//spritesheet:icons, 48 by 48, url.jpg
+		//use 48px by 48px sprites. toppest leftest position is [0,0]
+	//stylesheet if don't use this default https://orteil.dashnet.org/igm/stuff/basic.css
+
+Layout
+	use default
+
+Buttons
+	*fawksButton
+		name:Pat a fox|Pat foxes
+		desc:Pat this fox for good fortune!
+		on click:yield 1 bi
+		no text
+		show clicks
+		//icon:
+		lit
+
+Resources
+    *bi|bis
+        name:Tail wag|Tail wags
+        desc:A fox waving its tail brings you good fortune. Attract all the fortune you can!
+        //icon:
+        show earned
