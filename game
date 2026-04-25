@@ -11,8 +11,8 @@ Resources
 Buildings
 Upgrades
 Items
-Shinies (optional)
-Achievements (optional)
+Shinies
+Achievements
 CSS (optional)
 */
 
@@ -60,6 +60,7 @@ Buttons
         //on click:yield 100 bi //try to get a range of 100% to 999% fawksButton's current yield
         //on click: give up to 1 hanabi
         no text
+show clicks
         //icon:
         lit
         req:365 fawksbutton clicks
@@ -80,8 +81,10 @@ Resources
     *badluck
         name:Misfortune
         hidden
+//handfed keeps badluck stable, while supernaturals inflate this hidden stat
 
 Buildings
+//rename this if I can! "Belongings" maybe!
 //supernatural lineup
     *tree|trees
         name:Money tree|Money trees
@@ -113,26 +116,44 @@ Buildings
         name:Book|Books
         desc:Something to enrich your idle mind.
         cost:12 bi
-        req:300 bi
+        req:300 bi:earned
         tags:handfed
+on tick:lose 0.1 badluck
+on tick:get 1 bi
 
     *disc|discs
         name:Music
         desc:You can always come back to this experience.
         cost:40 bi
-        req:500 bi
+        req:500 bi:earned
         tags:handfed
+on tick:lose 0.2 badluck
+on tick:get 1 bi
 
     *painting|paintings
         name:Painting|Paintings
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
-        //icon:
         req:1 book or 1 disc
         req:1 bi per second and 1 festivalbutton click
         tags:handfed
+on tick:lose 0.3 badluck
+on tick:get 1 bi
+
+*masterwork|masterworks
+name:Masterwork find|Masterwork finds
+desc:Inspired at a community event, you bought this artwork on the spot.
+cost:1 hanabi
+//cost to sell: 0% or cant sell, etc.
+tags:handfed
+req:1 painting:earned
+req:333 fawksbutton clicks
+on tick:multiply badluck by 0.99
+on tick:get 10 bi
+
 
 Upgrades
+//handfed lineup
     *redcollar
         name:Red collar
         desc:A beautiful red collar. It makes foxes happy.
@@ -164,18 +185,28 @@ Upgrades
         req:999 fawksbutton clicks
         passive:multiply frequency of glow by 0.9
 
+//supernatural lineup
+*plantfood
+name:Plant food
+desc:Take special care of your money trees. (Double production speed of money trees)
+passive:multiply frequency of tree by 2
+req:9 trees
+cost:100 bi
+
+
     *cricket
         name:Lucky cricket brooch
         desc:A relative gives you this to remind you of her wisdom. (Mysterious hazes appear less often)
-        cost:1000 bi
+        cost:1 hanabi
         req:2 fog clicks
-        passive:multiply frequency of glow by 3
+        passive:multiply frequency of fog by 3
 
     *death
         name:Death
         desc:At some time, it will be time.
         cost:0 bi
-        req:(1 book and 1 disc and 1 painting) OR (9000 bi per second) OR (otherdeathrequirements)
+req:9000 bi per second
+        //req:(1 book and 1 disc and 1 painting and 1 masterwork) OR (9000 bi per second) OR (otherdeathrequirements)
             //etc. with the handfed buildings/upgrades
 
 
@@ -191,19 +222,21 @@ Shinies
         movement:anywhere wiggle bounce
         frequency:555
         frequency variation:333
+req:25 fawksbutton clicks
 
     *fog
         name:Mysterious Haze|Mysterious Hazes
         desc:What's this?
         //icon:golden ball reskinned
-        on click:multiply debt by 2
+        on click:multiply misfortune by 1.1
         on click:grant 1 debt
         movement:onBottom moveTop wiggle fade
         duration:14
         frequency:444
         frequency variation:4444
+//variation goes down with more badluck. Say 4% per increment
         tags:misfortune
-
+req:1 fawksbutton clicks
 
 
 
@@ -211,6 +244,7 @@ Achievements
     *yieldget0
         name:Unfortunate
         desc:Have negative fortune per second
+passive:get 10 misfortune
         req:-1 bi per second //or however this syntaxes
     *yieldgetMore
         name:Passive Player
@@ -235,6 +269,19 @@ Achievements
         desc:Have 998 fortune
         req:998 bi
 
+*fireworks1
+name:Fleeting flowers
+desc:Earn your first hanabi
+req:1 hanabi
+*fireworks2
+name:Splendid display
+desc:Buy a work of art with hanabi
+req:1 masterwork
+*fireworks3
+name:Summer tail
+desc:Earn nine hanabi
+req:9 hanabi:earned
+
     *clickFox1
         name:Awww, it likes me
         desc:Pat a fox several times
@@ -243,6 +290,7 @@ Achievements
         name:Am I a dog person?
         desc:Pat a fox many times
         req:1000 fawksbutton clicks
+//effect that inhibits bad luck
     *clickFox3
         name:Am I a cat person?
         desc:Pat a fox so, so many times
@@ -251,7 +299,9 @@ Achievements
     *clickFox4
         name:Can I just be a fox?
         desc:Pat foxes so much that you wish to be one
+req:clickfoxs3
         req:3301 fawksbutton clicks
+//2nd effect that inhibits bad luck
 
     *clickGlow1
         name:What was that?
@@ -270,10 +320,12 @@ Achievements
         name:A fool's fog
         desc:Go into debt, when you should know better
         req:4 fog clicks
+//effect: gain X misfortune
     *clickFog3
         name:Am I the problem?
         desc:Fall for a pyramid scheme
         req:100 fog clicks
+//effect: gain X misfortune
 
     *lifeAchieved
         name:A life well lived
