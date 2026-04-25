@@ -11,8 +11,8 @@ Resources
 Buildings
 Upgrades
 Items
-Shinies (optional)
-Achievements (optional)
+Shinies
+Achievements
 CSS (optional)
 */
 
@@ -60,6 +60,7 @@ Buttons
         //on click:yield 100 bi //try to get a range of 100% to 999% fawksButton's current yield
         //on click: give up to 1 hanabi
         no text
+show clicks
         //icon:
         lit
         req:365 fawksbutton clicks
@@ -80,8 +81,10 @@ Resources
     *badluck
         name:Misfortune
         hidden
+//handfed keeps misfortune stable, while supernatural destabilises this hidden stat
 
 Buildings
+//rename this if I can! Belongings maybe!
 //supernatural lineup
     *tree|trees
         name:Money tree|Money trees
@@ -115,6 +118,7 @@ Buildings
         cost:12 bi
         req:300 bi
         tags:handfed
+passive:lose 0.1 badluck per second
 
     *disc|discs
         name:Music
@@ -122,6 +126,7 @@ Buildings
         cost:40 bi
         req:500 bi
         tags:handfed
+passive:lose 0.2 badluck per second
 
     *painting|paintings
         name:Painting|Paintings
@@ -131,8 +136,12 @@ Buildings
         req:1 book or 1 disc
         req:1 bi per second and 1 festivalbutton click
         tags:handfed
+passive:lose 0.3 badluck per second
+
+
 
 Upgrades
+//handfed lineup
     *redcollar
         name:Red collar
         desc:A beautiful red collar. It makes foxes happy.
@@ -164,10 +173,19 @@ Upgrades
         req:999 fawksbutton clicks
         passive:multiply frequency of glow by 0.9
 
+//supernatural lineup
+*plantfood
+name:Plant food
+desc:Take special care of your money trees. (Double production speed of money trees)
+passive:multiply frequency of tree by 2
+req:9 trees
+cost:100 bi
+
+
     *cricket
         name:Lucky cricket brooch
         desc:A relative gives you this to remind you of her wisdom. (Mysterious hazes appear less often)
-        cost:1000 bi
+        cost:1 hanabi
         req:2 fog clicks
         passive:multiply frequency of glow by 3
 
@@ -175,7 +193,8 @@ Upgrades
         name:Death
         desc:At some time, it will be time.
         cost:0 bi
-        req:(1 book and 1 disc and 1 painting) OR (9000 bi per second) OR (otherdeathrequirements)
+req:9000 bi per second
+        //req:(1 book and 1 disc and 1 painting) OR (9000 bi per second) OR (otherdeathrequirements)
             //etc. with the handfed buildings/upgrades
 
 
@@ -196,7 +215,7 @@ Shinies
         name:Mysterious Haze|Mysterious Hazes
         desc:What's this?
         //icon:golden ball reskinned
-        on click:multiply debt by 2
+        on click:multiply misfortune by 1.1
         on click:grant 1 debt
         movement:onBottom moveTop wiggle fade
         duration:14
