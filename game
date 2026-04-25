@@ -281,7 +281,7 @@ Achievements
         req:9000 bi per second
         req:1 fawksbutton clicks
         req:1 hanabi
-        req;1 death
+        req:1 death
         req:debts<15
     *lifeOver
         name:A life lived
