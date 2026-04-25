@@ -91,7 +91,7 @@ Buildings
         on tick:yield 0.05 bi
         req:10 bi
 
-    *neko:nekos
+    *neko|nekos
         name:Beckoning Kitty|Beckoning Kitties
         desc:Maneki neko ask fortune to come into your life. [Attracts 1 fortune every 9 seconds]
         cost:100 bi
