@@ -1,4 +1,4 @@
-//this is meant to be the source text file as I experiment
+//this is meant to be the source text file as I experiment. the current game url is https://orteil.dashnet.org/igm/?g=https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/main/game
 
 /* Table of contents:
 Terms
@@ -11,14 +11,14 @@ Resources
 Buildings
 Upgrades
 Items
-Achivements
 Shinies (optional)
+Achievements (optional)
 CSS (optional)
 */
 
 
 /* Terms:
-bi = "tail" short for "tail wag," the most basic currency
+bi = the most basic currency of fortune, mainly from foxes wagging their tails
 hanabi = "firework," a special currency
 foxes = basic clickable critters
 fortune = overall collecting point of the game. buildings are non-critters that supernaturally increase fortune.
@@ -30,9 +30,11 @@ Let's make a game!
 	author:Lulo Rising
 	desc:Just testing what this game engine can do, for funsies.
 	updated:25/04/2026
+	//created:xx/yy/2026
+	//version:0
 
 Settings
-	background:
+	//background:
 	building cost increase:111%
 	building cost refund:77%
 	//spritesheet:icons, 48 by 48, url.jpg
@@ -52,9 +54,243 @@ Buttons
 		//icon:
 		lit
 
+    *festivalButton
+        name:Festival|Festivals
+        desc:A local festival or fair is just the thing~
+        //on click:yield 100 bi //try to get a range of 100% to 999% fawksButton's current yield
+        //on click: give up to 1 hanabi
+        no text
+        //icon:
+        lit
+        req:365 fawksbutton clicks
+
 Resources
-    *bi|bis
-        name:Tail wag|Tail wags
+    *bi
+        name:Fortune
         desc:A fox waving its tail brings you good fortune. Attract all the fortune you can!
         //icon:
         show earned
+
+    *hanabi
+        name:Hanabi
+        desc:The sky is bursting with gunpowder flowers. Wow, what a beautiful show!
+        hidden when 0
+        //icon:
+
+    *badluck
+        name:Misfortune
+        hidden
+
+Buildings
+//supernatural lineup
+    *tree|trees
+        name:Money tree|Money trees
+        desc:A lucky plant. [Attracts 1 fortune every 20 seconds]
+        cost:21 bi
+        cost increase:200%
+        on tick:yield 0.05 bi
+        req:10 bi
+
+    *neko:nekos
+        name:Beckoning Kitty|Beckoning Kitties
+        desc:Maneki neko ask fortune to come into your life. [Attracts 1 fortune every 9 seconds]
+        cost:100 bi
+        on tick:yield 0.11 bi
+        req:50 bi
+        tags:cat
+
+    *debt|debts
+        name:Debt|Debts
+        desc:Somewhere, luck failed. Now you owe something back. [Lose fortune per second]
+        no buy
+        on tick:lose 1 bi
+        hidden when 0
+        tags:misfortune
+
+//handfed lineup
+
+    *book|books
+        name:Book|Books
+        desc:Something to enrich your idle mind.
+        cost:12 bi
+        req:300 bi
+        tags:handfed
+
+    *disc|discs
+        name:Music
+        desc:You can always come back to this experience.
+        cost:40 bi
+        req:500 bi
+        tags:handfed
+
+    *painting|paintings
+        name:Painting|Paintings
+        desc:You looked into the face of the painter you bought this from.
+        cost:100 bi
+        //icon:
+        req:1 book or 1 disc
+        req:1 bi per second and 1 festivalbutton click
+        tags:handfed
+
+Upgrades
+    *redcollar
+        name:Red collar
+        desc:A beautiful red collar. It makes foxes happy.
+        cost:99 bi
+        passive:increase bi yield of fawksButton by 0.33
+        req:33 fawksbutton clicks
+
+    *purplecollar
+        name:Purple collar
+        desc:An elegant purple collar. It makes foxes really happy.
+        cost:99 bi
+        passive:increase bi yield of fawksButton by 2
+        req:99 fawksbutton clicks
+
+    /*
+    *bellseller
+        name:Buy a bell
+        desc:Maybe the foxes will like these?
+        cost:9 bi
+        req:999 fawksbutton clicks
+        grant 1 bell
+        req:ItemsLeft>0
+        */
+
+        *bell|bells
+        name:Bell|Bells
+        desc: With a jingle, you can now always hear when this fox is in the area. [Wisps appear more often]
+        cost:9 bi
+        req:999 fawksbutton clicks
+        passive:multiply frequency of glow by 0.9
+
+    *cricket
+        name:Lucky cricket brooch
+        desc:A relative gives you this to remind you of her wisdom. [Mysterious hazes appear less often]
+        cost:1000 bi
+        req:2 fog clicks
+        passive:multiply frequency of glow by 3
+
+    *death
+        name:Death
+        desc:At some time, it will be time.
+        cost:0 bi
+        req:(1 book and 1 disc and 1 painting) OR (9000 bi per second) OR (otherdeathrequirements)
+            //etc. with the handfed buildings/upgrades
+
+
+Shinies
+    *glow
+        name:Wisp|Wisps
+        desc:What's this?
+        //icon: golden ball
+        on click:grant 1 hanabi
+        on click:lose 1 debt
+            //prefer if could on click X bi OR Y hanabi, kind of thing.
+        duration:9
+        movement:anywhere wiggle bounce
+        frequency:555
+        frequency variation:333
+
+    *fog
+        name:Mysterious Haze|Mysterious Hazes
+        desc:What's this?
+        //icon:golden ball reskinned
+        on click:multiply debt by 2
+        on click:grant 1 debt
+        movement:onBottom moveTop wiggle fade
+        duration:14
+        frequency:444
+        frequency variation:4444
+        tags:misfortune
+
+
+
+
+Achievements
+    *yieldget0
+        name:Unfortunate
+        desc:Have negative fortune per second
+        req:-1 bi per second //or however this syntaxes
+    *yieldgetMore
+        name:Passive Player
+        desc:Have considerably more fortuners per second than wags per fox pat
+        req:10 bi per second
+        //AND req: more bi per second than bi per fox pat
+    *yieldget1
+        name:Set Up to be Lucky
+        desc:Have fortunes of 9 per second.
+        req:9 bi per second
+    *yieldget2
+        name:Zen attraction
+        desc:Have fortunes of 50 per second.
+        req:50 bi per second
+
+    *fortunate1
+        name:Fortunate One
+        desc:Have 99 fortune
+        req:99 bi
+    *fortunate2
+        name:Turning Fortune
+        desc:Have 998 fortune
+        req:998 bi
+
+    *clickFox1
+        name:Awww, it likes me
+        desc:Pat a fox several times
+        req:21 fawksbutton clicks
+    *clickFox2
+        name:Am I a dog person?
+        desc:Pat a fox many times
+        req:1000 fawksbutton clicks
+    *clickFox3
+        name:Am I a cat person?
+        desc:Pat a fox so, so many times
+        req:2000 fawksbutton clicks
+        req:1 neko
+    *clickFox4
+        name:Can I just be a fox?
+        desc:Pat foxes so much that you wish to be one
+        req:3301 fawksbutton clicks
+
+    *clickGlow1
+        name:What was that?
+        desc:Click 1 wisp
+        req:1 wisp click
+    *clickGlow2
+        name:Go with the Glow
+        desc:Click several wisps
+        req:16 wisp clicks
+
+    *clickFog1
+        name:WHAT was THAT?
+        desc:Click 1 mysterious haze
+        req:1 fog click
+    *clickFog2
+        name:A fool's fog
+        desc:Go into debt, when you should know better
+        req:4 fog clicks
+    *clickFog3
+        name:Am I the problem?
+        desc:Fall for a pyramid scheme
+        req:100 fog clicks
+
+    *lifeAchieved
+        name:A life well lived
+        desc:It was always about winning your best self, not the lottery. You got the good ending!
+        req:9000 bi per second
+        req:1 fawksbutton clicks
+        req:1 hanabi
+        req;1 death
+        req:debts<15
+    *lifeOver
+        name:A life lived
+        desc:End the game.
+        req:1 death
+        req:debts<15
+        req:<9000 bi per second
+    *lifeFallen
+        name:A life endured
+        desc:End the game after a lot of misfortune.
+        req:1 death
+        req:(debts>=15 or 100 fog clicks)
