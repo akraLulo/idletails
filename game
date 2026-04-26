@@ -140,7 +140,7 @@ on tick:get 1 bi
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
         req:
-			(1 book or 1 disc)
+			1 book or 1 disc
 			bi:ps>=1
 			festivalButton:clicks>=1
 			end
@@ -149,15 +149,15 @@ on tick:lose 0.3 badluck
 on tick:get 1 bi
 
 	*masterwork|masterworks
-	name:Masterwork find|Masterwork finds
-	desc:Inspired at a community event, you bought this artwork on the spot.
-	cost:1 hanabi
-	cost refund:0%
-	//refund 0% or cant sell, etc.
-	tags:handfed
-	req:(1 painting:earned) and (1 hanabi:earned) and (333 fawksButton clicks)
-	on tick:multiply badluck by 0.99
-	on tick:get 10 bi
+		name:Masterwork find|Masterwork finds
+		desc:Inspired at a community event, you bought this artwork on the spot.
+		cost:1 hanabi
+		cost refund:0%
+		//refund 0% or cant sell, etc.
+		tags:handfed
+		req:(1 painting:earned) and (1 hanabi:earned) and (333 fawksButton clicks)
+		on tick:multiply badluck by 0.99
+		on tick:get 10 bi
 
 
 Upgrades
