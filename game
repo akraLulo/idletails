@@ -139,7 +139,7 @@ on tick:get 1 bi
         name:Painting|Paintings
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
-        req:(1 book or 1 disc) and bi:ps>=1 and festivalButton:clicks>=1
+        req:((1 book or 1 disc) and bi:ps>=1 and festivalButton:clicks>=1)
         tags:handfed
 on tick:lose 0.3 badluck
 on tick:get 1 bi
