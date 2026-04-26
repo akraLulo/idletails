@@ -31,7 +31,7 @@ Let's make a game!
 	desc:Just testing what this game engine can do, for funsies.
 	updated:26/04/2026
 	created:25/04/2026
- 	version:0.01
+ 	version:0.02
 
 Settings
 	//background:
@@ -43,13 +43,16 @@ Settings
 
 Layout
 	use default
+	*buildings
+		contains:Buildings
+		header:Belongings
 
 Buttons
 	*fawksButton
 		name:Pat a fox|Pat foxes
 		desc:Pat this fox for good fortune!
 		on click:yield 1 bi
-		no text
+		//no text
 		show clicks
 		//icon:
 		lit
@@ -82,7 +85,7 @@ Resources
 
     *badluck
         name:Misfortunes
-        hidden
+        always hidden
 //handfed keeps badluck stable, while supernaturals inflate this hidden stat
 
 	*loseBell
@@ -141,7 +144,7 @@ Buildings
         name:Painting|Paintings
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
-        req:disc<=1 or book<=1
+        req:disc>=1 or book>=1
 		req:bi:ps>=1
 		req:festivalButton:clicks>=1
         tags:handfed
