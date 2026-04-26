@@ -155,8 +155,8 @@ Buildings
 		cost refund:0%
 		//refund 0% or cant sell, etc.
 		tags:handfed
-		req:1>=painting:earned
-		req:1>=hanabi:earned
+		req:painting:earned>0
+		req:hanabi:earned>0
 		req:fawksButton:clicks>=333
 		//decrease 1% of bad luck over time
 		//on tick:lose 1 badluck
