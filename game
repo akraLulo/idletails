@@ -57,8 +57,10 @@ Buttons
     *festivalButton
         name:Festival|Festivals
         desc:A local festival or fair is just the thing~
-        //on click:yield 100 bi //try to get a range of 100% to 999% fawksButton's current yield
-        //on click: give up to 1 hanabi
+        on click:
+			yield (random(199,1000)) bi
+			if (chance(77%)) win 1 hanabi
+			end
         no text
 		show clicks
         //icon:
@@ -123,8 +125,8 @@ Buildings
         cost:12 bi
         req:300 bi:earned
         tags:handfed
-on tick:lose 0.1 badluck
-on tick:get 1 bi
+		on tick:lose 0.1 badluck
+		on tick:get 1 bi
 
     *disc|discs
         name:Music
