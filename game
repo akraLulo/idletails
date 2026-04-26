@@ -63,7 +63,7 @@ Buttons
 show clicks
         //icon:
         lit
-        req:365 fawksbutton clicks
+        req:365 fawksButton clicks
 
 Resources
     *bi
@@ -135,7 +135,7 @@ on tick:get 1 bi
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
         req:1 book or 1 disc
-        req:1 bi per second and 1 festivalbutton click
+        req:1 bi per second and 1 festivalButton click
         tags:handfed
 on tick:lose 0.3 badluck
 on tick:get 1 bi
@@ -147,7 +147,7 @@ on tick:get 1 bi
 	//cost to sell: 0% or cant sell, etc.
 	tags:handfed
 	req:1 painting:earned
-	req:333 fawksbutton clicks
+	req:333 fawksButton clicks
 	on tick:multiply badluck by 0.99
 	on tick:get 10 bi
 
@@ -159,21 +159,21 @@ Upgrades
         desc:A beautiful red collar. It makes foxes happy.
         cost:99 bi
         passive:increase bi yield of fawksButton by 0.33
-        req:33 fawksbutton clicks
+        req:33 fawksButton clicks
 
     *purplecollar
         name:Purple collar
         desc:An elegant purple collar. It makes foxes really happy.
         cost:99 bi
         passive:increase bi yield of fawksButton by 2
-        req:99 fawksbutton clicks
+        req:99 fawksButton clicks
 
     /*
     *bellseller
         name:Buy a bell
         desc:Maybe the foxes will like these?
         cost:9 bi
-        req:999 fawksbutton clicks
+        req:999 fawksButton clicks
         grant 1 bell
         req:ItemsLeft>0
         */
@@ -182,7 +182,7 @@ Upgrades
         name:Bell|Bells
         desc: With a jingle, you can now always hear when this fox is in the area. (Wisps appear more often)
         cost:9 bi
-        req:999 fawksbutton clicks
+        req:999 fawksButton clicks
         passive:multiply frequency of glow by 0.9
 
 	//supernatural lineup
@@ -222,7 +222,7 @@ Shinies
         movement:anywhere wiggle bounce
         frequency:555
         frequency variation:333
-req:25 fawksbutton clicks
+req:25 fawksButton clicks
 
     *fog
         name:Mysterious Haze|Mysterious Hazes
@@ -236,7 +236,7 @@ req:25 fawksbutton clicks
         frequency variation:4444
 //variation goes down with more badluck. Say 4% per increment
         tags:misfortune
-req:1 fawksbutton clicks
+req:1 fawksButton clicks
 
 
 
@@ -285,22 +285,22 @@ passive:get 10 misfortune
     *clickFox1
         name:Awww, it likes me
         desc:Pat a fox several times
-        req:21 fawksbutton clicks
+        req:21 fawksButton clicks
     *clickFox2
         name:Am I a dog person?
         desc:Pat a fox many times
-        req:1000 fawksbutton clicks
+        req:1000 fawksButton clicks
 //effect that inhibits bad luck
     *clickFox3
         name:Am I a cat person?
         desc:Pat a fox so, so many times
-        req:2000 fawksbutton clicks
+        req:2000 fawksButton clicks
         req:1 neko
     *clickFox4
         name:Can I just be a fox?
         desc:Pat foxes so much that you wish to be one
 req:clickfoxs3
-        req:3301 fawksbutton clicks
+        req:3301 fawksButton clicks
 //2nd effect that inhibits bad luck
 
     *clickGlow1
@@ -331,7 +331,7 @@ req:clickfoxs3
         name:A life well lived
         desc:It was always about winning your best self, not the lottery. You got the good ending!
         req:9000 bi per second
-        req:1 fawksbutton clicks
+        req:1 fawksButton clicks
         req:1 hanabi
         req:1 death
         req:debts<15
