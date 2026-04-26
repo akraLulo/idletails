@@ -346,3 +346,4 @@ req:clickfoxs3
         desc:End the game after a lot of misfortune.
         req:1 death
         req:(debts>=15 or 100 fog clicks)
+	//something as hell
