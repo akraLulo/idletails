@@ -65,7 +65,7 @@ Buttons
         no text
 		show clicks
         //icon:
-		on load:light this
+hide
         req:365 fawksButton clicks
 
 Resources
