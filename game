@@ -132,21 +132,19 @@ on tick:get 1 bi
         cost:40 bi
         req:500 bi:earned
         tags:handfed
-on tick:lose 0.2 badluck
-on tick:get 1 bi
+		on tick:lose 0.2 badluck
+		on tick:get 1 bi
 
     *painting|paintings
         name:Painting|Paintings
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
-        req:
-			disc<=1 or book<=1
-			bi:ps>=1
-			festivalButton:clicks>=1
-			end
+        req:disc<=1 or book<=1
+		req:bi:ps>=1
+		req:festivalButton:clicks>=1
         tags:handfed
-on tick:lose 0.3 badluck
-on tick:get 1 bi
+		on tick:lose 0.3 badluck
+		on tick:get 1 bi
 
 	*masterwork|masterworks
 		name:Masterwork find|Masterwork finds
