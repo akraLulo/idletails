@@ -240,7 +240,10 @@ Shinies
         name:Mysterious Haze|Mysterious Hazes
         desc:What's this?
         //icon:golden ball reskinned
-        on click:(gain (badluck/10) badluck and win 1 debt)
+        on click:
+			yield (badluck/10) badluck
+			win 1 debt
+			end
         movement:onBottom moveTop wiggle fade
         duration:14
         frequency:444
