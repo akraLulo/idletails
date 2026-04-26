@@ -52,6 +52,7 @@ Buttons
 		on click:yield 1 bi
 		no text
 		show clicks
+class:bigButton hasFlares
 		icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled636_20260426043952.png
 		lit
 
