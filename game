@@ -316,7 +316,7 @@ Achievements
     *clickFox4
         name:Can I just be a fox?
         desc:Pat foxes so much that you wish to be one
-		req:have clickfox3
+		req:have clickFox3
         req:3301 fawksButton clicks
 		//2nd effect that inhibits bad luck
 
