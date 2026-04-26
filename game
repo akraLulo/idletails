@@ -140,7 +140,7 @@ on tick:get 1 bi
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
         req:
-			1 book or 1 disc
+			(1 book or 1 disc)
 			bi:ps>=1
 			festivalButton:clicks>=1
 			end
