@@ -64,7 +64,7 @@ Buttons
         no text
 		show clicks
         //icon:
-		on load:light festivalButton
+		on load:light this
         req:365 fawksButton clicks
 
 Resources
@@ -187,7 +187,7 @@ Upgrades
         cost:9 bi
         req:999 fawksButton clicks
         passive:multiply frequency of glow by 0.9
-		on lose:dim
+		on lose:dim this
 
 	//supernatural lineup
 	*plantfood
