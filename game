@@ -220,7 +220,7 @@ Shinies
     *glow
         name:Wisp|Wisps
         desc:What's this?
-        icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled583_20260426040537.png
+        icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/shinies/Untitled637_20260426050556.png
 
         on click:
 			lose 1 debt
@@ -241,7 +241,7 @@ Shinies
     *fog
         name:Mysterious Haze|Mysterious Hazes
         desc:What's this?
-        icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled583_20260426040701.png
+        icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled637_20260426050603.png
         on click:
 			yield (badluck/10) badluck
 			win 1 debt
