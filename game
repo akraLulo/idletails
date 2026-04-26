@@ -52,7 +52,7 @@ Buttons
 		on click:yield 1 bi
 		no text
 		show clicks
-		icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled635_20260426042812.png
+		icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled636_20260426043952.png
 		lit
 
     *festivalButton
