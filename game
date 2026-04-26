@@ -43,7 +43,7 @@ Settings
 
 Layout
 	use default
-	*buildings
+	*belongings
 		contains:Buildings
 		header:Belongings
 
