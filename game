@@ -81,7 +81,7 @@ Resources
         //icon:
 
     *badluck
-        name:Misfortune
+        name:Misfortunes
         hidden
 //handfed keeps badluck stable, while supernaturals inflate this hidden stat
 
@@ -333,12 +333,12 @@ req:clickfoxs3
         name:A fool's fog
         desc:Go into debt, when you should know better
         req:4 fog clicks
-//effect: gain X misfortune
+//effect: gain X badluck
     *clickFog3
         name:Am I the problem?
         desc:Fall for a pyramid scheme
         req:100 fog clicks
-//effect: gain X misfortune
+//effect: gain X badluck
 
     *lifeAchieved
         name:A life well lived
