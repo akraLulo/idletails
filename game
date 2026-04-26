@@ -153,7 +153,7 @@ on tick:get 1 bi
 		cost refund:0%
 		//refund 0% or cant sell, etc.
 		tags:handfed
-		req:(1 painting:earned) and (1 hanabi:earned) and (333 fawksButton clicks)
+		req:(1 painting:earned) and (1 hanabi:earned) and (fawksButton:clicks>=333)
 		//decrease 1% of bad luck over time
 		on tick:lose 1 badluck
 		//on tick:(lose (badluck/100) badluck))
@@ -229,7 +229,7 @@ Shinies
         movement:anywhere wiggle bounce
         frequency:555
         frequency variation:333
-		req:(25 fawksButton clicks and badluck<98)
+		req:(fawksbutton:clicks>=25 and badluck<98)
 
     *fog
         name:Mysterious Haze|Mysterious Hazes
