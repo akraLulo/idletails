@@ -1,7 +1,7 @@
 //this is meant to be the source text file as I experiment. the current game url is https://orteil.dashnet.org/igm/?g=https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/main/game
 
 /* Table of contents:
-Terms
+Conceptual terms
 Let's make a game
 Settings
 Includes (optional)
@@ -17,7 +17,7 @@ CSS (optional)
 */
 
 
-/* Terms:
+/* Conceptual terms:
 bi = the most basic currency of fortune, mainly from foxes wagging their tails
 hanabi = "firework," a special currency
 foxes = basic clickable critters
