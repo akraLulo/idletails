@@ -1,7 +1,7 @@
 //this is meant to be the source text file as I experiment. the current game url is https://orteil.dashnet.org/igm/?g=https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/main/game
 
 /* Table of contents:
-Terms
+Conceptual terms
 Let's make a game
 Settings
 Includes (optional)
@@ -17,7 +17,7 @@ CSS (optional)
 */
 
 
-/* Terms:
+/* Conceptual terms:
 bi = the most basic currency of fortune, mainly from foxes wagging their tails
 hanabi = "firework," a special currency
 foxes = basic clickable critters
@@ -26,12 +26,12 @@ handfed = non-automated player interactions, which give better fortune (& low ri
 */
 
 Let's make a game!
-	name:Many Tails of the Fawks
+	name:Idle Tails of the Fawks
 	author:Lulo Rising
 	desc:Just testing what this game engine can do, for funsies.
-	updated:25/04/2026
+	updated:26/04/2026
 	created:25/04/2026
- version:0
+ 	version:0.01
 
 Settings
 	//background:
@@ -57,13 +57,15 @@ Buttons
     *festivalButton
         name:Festival|Festivals
         desc:A local festival or fair is just the thing~
-        //on click:yield 100 bi //try to get a range of 100% to 999% fawksButton's current yield
-        //on click: give up to 1 hanabi
+        on click:
+			yield (random(199,1000)) bi
+			if (chance(77%)) win 1 hanabi
+			end
         no text
-show clicks
+		show clicks
         //icon:
-        lit
-        req:365 fawksbutton clicks
+		on load:light this
+        req:365 fawksButton clicks
 
 Resources
     *bi
@@ -79,9 +81,14 @@ Resources
         //icon:
 
     *badluck
-        name:Misfortune
+        name:Misfortunes
         hidden
 //handfed keeps badluck stable, while supernaturals inflate this hidden stat
+
+	*loseBell
+		name:Lose bell
+		hidden
+		//effect: popup message and lose 1 bell
 
 Buildings
 //rename this if I can! "Belongings" maybe!
@@ -92,14 +99,14 @@ Buildings
         cost:21 bi
         cost increase:200%
         on tick:yield 0.05 bi
-        req:10 bi
+        req:10 bi:earned
 
     *neko|nekos
         name:Beckoning Kitty|Beckoning Kitties
         desc:Maneki neko ask fortune to come into your life. (Attracts 1 fortune every 9 seconds)
         cost:100 bi
         on tick:yield 0.11 bi
-        req:50 bi
+        req:50 bi:earned
         tags:cat
 
     *debt|debts
@@ -118,8 +125,8 @@ Buildings
         cost:12 bi
         req:300 bi:earned
         tags:handfed
-on tick:lose 0.1 badluck
-on tick:get 1 bi
+		on tick:lose 0.1 badluck
+		on tick:get 1 bi
 
     *disc|discs
         name:Music
@@ -127,29 +134,35 @@ on tick:get 1 bi
         cost:40 bi
         req:500 bi:earned
         tags:handfed
-on tick:lose 0.2 badluck
-on tick:get 1 bi
+		on tick:lose 0.2 badluck
+		on tick:get 1 bi
 
     *painting|paintings
         name:Painting|Paintings
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
-        req:1 book or 1 disc
-        req:1 bi per second and 1 festivalbutton click
+        req:disc<=1 or book<=1
+		req:bi:ps>=1
+		req:festivalButton:clicks>=1
         tags:handfed
-on tick:lose 0.3 badluck
-on tick:get 1 bi
+		on tick:lose 0.3 badluck
+		on tick:get 1 bi
 
-*masterwork|masterworks
-name:Masterwork find|Masterwork finds
-desc:Inspired at a community event, you bought this artwork on the spot.
-cost:1 hanabi
-//cost to sell: 0% or cant sell, etc.
-tags:handfed
-req:1 painting:earned
-req:333 fawksbutton clicks
-on tick:multiply badluck by 0.99
-on tick:get 10 bi
+	*masterwork|masterworks
+		name:Masterwork find|Masterwork finds
+		desc:Inspired at a community event, you bought this artwork on the spot.
+		cost:1 hanabi
+		cost refund:0%
+		//refund 0% or cant sell, etc.
+		tags:handfed
+		req:painting:earned>0
+		req:hanabi:earned>0
+		req:fawksButton:clicks>=333
+		//decrease 1% of bad luck over time
+		//on tick:lose 1 badluck
+		on tick:lose (badluck/100) badluck
+		on tick:get 10 bi
+
 
 
 Upgrades
@@ -159,39 +172,30 @@ Upgrades
         desc:A beautiful red collar. It makes foxes happy.
         cost:99 bi
         passive:increase bi yield of fawksButton by 0.33
-        req:33 fawksbutton clicks
+        req:33 fawksButton clicks
 
     *purplecollar
         name:Purple collar
         desc:An elegant purple collar. It makes foxes really happy.
         cost:99 bi
         passive:increase bi yield of fawksButton by 2
-        req:99 fawksbutton clicks
-
-    /*
-    *bellseller
-        name:Buy a bell
-        desc:Maybe the foxes will like these?
-        cost:9 bi
-        req:999 fawksbutton clicks
-        grant 1 bell
-        req:ItemsLeft>0
-        */
-
-        *bell|bells
+        req:99 fawksButton clicks
+   
+	*bell|bells
         name:Bell|Bells
-        desc: With a jingle, you can now always hear when this fox is in the area. (Wisps appear more often)
+        desc:With a jingle, you can now always hear when this fox is in the area. (Wisps appear more often)
         cost:9 bi
-        req:999 fawksbutton clicks
+        req:999 fawksButton clicks
         passive:multiply frequency of glow by 0.9
+		on lose:dim this
 
-//supernatural lineup
-*plantfood
-name:Plant food
-desc:Take special care of your money trees. (Double production speed of money trees)
-passive:multiply frequency of tree by 2
-req:9 trees
-cost:100 bi
+	//supernatural lineup
+	*plantfood
+		name:Plant food
+		desc:Take special care of your money trees. (Double production speed of money trees)
+		passive:multiply frequency of tree by 2
+		req:9 trees
+		cost:100 bi
 
 
     *cricket
@@ -205,7 +209,7 @@ cost:100 bi
         name:Death
         desc:At some time, it will be time.
         cost:0 bi
-req:9000 bi per second
+		req:9000 bi per second
         //req:(1 book and 1 disc and 1 painting and 1 masterwork) OR (9000 bi per second) OR (otherdeathrequirements)
             //etc. with the handfed buildings/upgrades
 
@@ -215,28 +219,38 @@ Shinies
         name:Wisp|Wisps
         desc:What's this?
         //icon: golden ball
-        on click:grant 1 hanabi
-        on click:lose 1 debt
-            //prefer if could on click X bi OR Y hanabi, kind of thing.
+
+        on click:
+			lose 1 debt
+			if (chance(13%))
+				yield 1 hanabi
+			else
+				yield random(5,101) bi
+			end
+		end
+
         duration:9
         movement:anywhere wiggle bounce
         frequency:555
         frequency variation:333
-req:25 fawksbutton clicks
+		req:fawksButton:clicks>=25
+		req:badluck<98
 
     *fog
         name:Mysterious Haze|Mysterious Hazes
         desc:What's this?
         //icon:golden ball reskinned
-        on click:multiply misfortune by 1.1
-        on click:grant 1 debt
+        on click:
+			yield (badluck/10) badluck
+			win 1 debt
+			end
         movement:onBottom moveTop wiggle fade
         duration:14
         frequency:444
-        frequency variation:4444
-//variation goes down with more badluck. Say 4% per increment
+        frequency variation:4444-(4*badluck)
+		//variation goes down with more badluck. Say 4% per increment?
         tags:misfortune
-req:1 fawksbutton clicks
+		req:1 fawksButton clicks
 
 
 
@@ -244,13 +258,16 @@ Achievements
     *yieldget0
         name:Unfortunate
         desc:Have negative fortune per second
-passive:get 10 misfortune
-        req:-1 bi per second //or however this syntaxes
-    *yieldgetMore
+		on earn:get 10 badluck
+        req:bi:ps<0
+			//or however this syntaxes
+    /*
+	*yieldgetMore
         name:Passive Player
         desc:Have considerably more fortuners per second than wags per fox pat
-        req:10 bi per second
-        //AND req: more bi per second than bi per fox pat
+        req:(10 bi per second) and...
+        //reqs more bi per second than bi per fox pat. unable to return 'yield per thingButton click'
+	*/
     *yieldget1
         name:Set Up to be Lucky
         desc:Have fortunes of 9 per second.
@@ -269,48 +286,48 @@ passive:get 10 misfortune
         desc:Have 998 fortune
         req:998 bi
 
-*fireworks1
-name:Fleeting flowers
-desc:Earn your first hanabi
-req:1 hanabi
-*fireworks2
-name:Splendid display
-desc:Buy a work of art with hanabi
-req:1 masterwork
-*fireworks3
-name:Summer tail
-desc:Earn nine hanabi
-req:9 hanabi:earned
+	*fireworks1
+		name:Fleeting flowers
+		desc:Earn your first hanabi
+		req:1 hanabi
+	*fireworks2
+		name:Splendid display
+		desc:Buy a work of art with hanabi
+		req:1 masterwork
+	*fireworks3
+		name:Summer tail
+		desc:Earn nine hanabi
+		req:9 hanabi:earned
 
     *clickFox1
         name:Awww, it likes me
         desc:Pat a fox several times
-        req:21 fawksbutton clicks
+        req:21 fawksButton clicks
     *clickFox2
         name:Am I a dog person?
         desc:Pat a fox many times
-        req:1000 fawksbutton clicks
-//effect that inhibits bad luck
+        req:1000 fawksButton clicks
+		//effect that inhibits bad luck
     *clickFox3
         name:Am I a cat person?
         desc:Pat a fox so, so many times
-        req:2000 fawksbutton clicks
+        req:2000 fawksButton clicks
         req:1 neko
     *clickFox4
         name:Can I just be a fox?
-        desc:Pat foxes so much that you wish to be one
-req:clickfoxs3
-        req:3301 fawksbutton clicks
-//2nd effect that inhibits bad luck
+        desc:Pat foxes so much that you <i>almost</i> become one
+		req:have clickFox3
+        req:3301 fawksButton clicks
+		//2nd effect that inhibits bad luck
 
     *clickGlow1
         name:What was that?
         desc:Click 1 wisp
-        req:1 wisp click
+        req:1 glow click
     *clickGlow2
         name:Go with the Glow
         desc:Click several wisps
-        req:16 wisp clicks
+        req:16 glow clicks
 
     *clickFog1
         name:WHAT was THAT?
@@ -320,29 +337,29 @@ req:clickfoxs3
         name:A fool's fog
         desc:Go into debt, when you should know better
         req:4 fog clicks
-//effect: gain X misfortune
+		on earn:win 44 badluck
     *clickFog3
         name:Am I the problem?
         desc:Fall for a pyramid scheme
         req:100 fog clicks
-//effect: gain X misfortune
+		on earn:win 102 badluck
 
     *lifeAchieved
         name:A life well lived
         desc:It was always about winning your best self, not the lottery. You got the good ending!
         req:9000 bi per second
-        req:1 fawksbutton clicks
-        req:1 hanabi
-        req:1 death
+        req:1 fawksButton clicks
+        req:have fireworks1
+        req:have death
         req:debts<15
     *lifeOver
         name:A life lived
         desc:End the game.
-        req:1 death
+        req:have death
         req:debts<15
-        req:<9000 bi per second
+        req:bi:ps<9000
     *lifeFallen
         name:A life endured
         desc:End the game after a lot of misfortune.
-        req:1 death
-        req:(debts>=15 or 100 fog clicks)
+        req:have death
+        req:(debts>=15 or fog:clicks>99)
