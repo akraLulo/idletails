@@ -52,7 +52,7 @@ Buttons
 		on click:yield 1 bi
 		no text
 		show clicks
-		icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled439_20260426034404.jpg
+		icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled635_20260426042812.png
 		lit
 
     *festivalButton
@@ -65,7 +65,7 @@ Buttons
         no text
 		show clicks
         //icon:
-hide
+hidden
         req:365 fawksButton clicks
 
 Resources
