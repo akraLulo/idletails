@@ -52,7 +52,7 @@ Buttons
 		on click:yield 1 bi
 		no text
 		show clicks
-		//icon:
+		icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled439_20260426034404.jpg
 		lit
 
     *festivalButton
@@ -72,7 +72,7 @@ Resources
     *bi
         name:Fortune
         desc:A fox waving its tail brings you good fortune. Attract all the fortune you can!
-        //icon:
+        icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled332_20260426035053.png
         show earned
 
     *hanabi
@@ -219,7 +219,7 @@ Shinies
     *glow
         name:Wisp|Wisps
         desc:What's this?
-        //icon: golden ball
+        icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled583_20260426040537.png
 
         on click:
 			lose 1 debt
@@ -240,7 +240,7 @@ Shinies
     *fog
         name:Mysterious Haze|Mysterious Hazes
         desc:What's this?
-        //icon:golden ball reskinned
+        icon:https://raw.githubusercontent.com/akraLulo/idletails/refs/heads/active-test/assets/Untitled583_20260426040701.png
         on click:
 			yield (badluck/10) badluck
 			win 1 debt
