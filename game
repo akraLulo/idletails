@@ -256,7 +256,7 @@ Achievements
         name:Unfortunate
         desc:Have negative fortune per second
 		on earn:get 10 badluck
-        req:(<0 bi per second) //or however this syntaxes
+        req:bi:ps<0 //or however this syntaxes
     /*
 	*yieldgetMore
         name:Passive Player
