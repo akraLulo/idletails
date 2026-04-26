@@ -154,7 +154,7 @@ on tick:get 1 bi
 		//refund 0% or cant sell, etc.
 		tags:handfed
 		req:(1 painting:earned) and (1 hanabi:earned) and (333 fawksButton clicks)
-		//on tick:multiply badluck by 0.99
+		//decrease 1% of bad luck over time
 		on tick:lose 1 badluck
 		//on tick:(lose (badluck/100) badluck))
 		on tick:get 10 bi
