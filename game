@@ -233,7 +233,8 @@ Shinies
         movement:anywhere wiggle bounce
         frequency:555
         frequency variation:333
-		req:(fawksbutton:clicks>=25 and badluck<98)
+		req:fawksButton:clicks>=25
+		req:badluck<98
 
     *fog
         name:Mysterious Haze|Mysterious Hazes
