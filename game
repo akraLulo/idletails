@@ -316,18 +316,18 @@ Achievements
     *clickFox4
         name:Can I just be a fox?
         desc:Pat foxes so much that you wish to be one
-		req:clickfox3
+		req:have clickfox3
         req:3301 fawksButton clicks
 		//2nd effect that inhibits bad luck
 
     *clickGlow1
         name:What was that?
         desc:Click 1 wisp
-        req:1 wisp click
+        req:1 glow click
     *clickGlow2
         name:Go with the Glow
         desc:Click several wisps
-        req:16 wisp clicks
+        req:16 glow clicks
 
     *clickFog1
         name:WHAT was THAT?
@@ -337,29 +337,29 @@ Achievements
         name:A fool's fog
         desc:Go into debt, when you should know better
         req:4 fog clicks
-		on earn: gain 44 badluck
+		on earn:win 44 badluck
     *clickFog3
         name:Am I the problem?
         desc:Fall for a pyramid scheme
         req:100 fog clicks
-		on earn: gain 102 badluck
+		on earn:win 102 badluck
 
     *lifeAchieved
         name:A life well lived
         desc:It was always about winning your best self, not the lottery. You got the good ending!
         req:9000 bi per second
         req:1 fawksButton clicks
-        req:1 hanabi
-        req:1 death
+        req:have fireworks1
+        req:have death
         req:debts<15
     *lifeOver
         name:A life lived
         desc:End the game.
-        req:1 death
+        req:have death
         req:debts<15
         req:<9000 bi per second
     *lifeFallen
         name:A life endured
         desc:End the game after a lot of misfortune.
-        req:1 death
+        req:have death
         req:(debts>=15 or fog:clicks>99)
