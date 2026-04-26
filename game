@@ -139,7 +139,7 @@ on tick:get 1 bi
         name:Painting|Paintings
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
-        req:(1 book or 1 disc) and (1 bi per second) and (1 festivalButton click)
+        req:(1 book or 1 disc) and bi:ps>=1 and (1 festivalButton click)
         tags:handfed
 on tick:lose 0.3 badluck
 on tick:get 1 bi
@@ -246,11 +246,13 @@ Achievements
         desc:Have negative fortune per second
 		on earn:get 10 badluck
         req:(<0 bi per second) //or however this syntaxes
-    /**yieldgetMore
+    /*
+	*yieldgetMore
         name:Passive Player
         desc:Have considerably more fortuners per second than wags per fox pat
-        req:(10 bi per second) and (bi:ps>
-        //reqs more bi per second than bi per fox pat. unable to return 'yield per thingButton click'*/
+        req:(10 bi per second) and...
+        //reqs more bi per second than bi per fox pat. unable to return 'yield per thingButton click'
+	*/
     *yieldget1
         name:Set Up to be Lucky
         desc:Have fortunes of 9 per second.
