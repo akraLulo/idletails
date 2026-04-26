@@ -221,7 +221,7 @@ Shinies
         //icon: golden ball
 
         on click:
-			(lose 1 debt)
+			lose 1 debt
 			if (chance(13%))
 				yield 1 hanabi
 			else
