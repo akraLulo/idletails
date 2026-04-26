@@ -139,7 +139,7 @@ on tick:get 1 bi
         name:Painting|Paintings
         desc:You looked into the face of the painter you bought this from.
         cost:100 bi
-        req:(1 book or 1 disc) and bi:ps>=1 and (festivalButton:clicks>=1)
+        req:(1 book or 1 disc) and bi:ps>=1 and festivalButton:clicks>=1
         tags:handfed
 on tick:lose 0.3 badluck
 on tick:get 1 bi
@@ -148,7 +148,8 @@ on tick:get 1 bi
 	name:Masterwork find|Masterwork finds
 	desc:Inspired at a community event, you bought this artwork on the spot.
 	cost:1 hanabi
-	//cost to sell: 0% or cant sell, etc.
+	cost refund:0%
+	//refund 0% or cant sell, etc.
 	tags:handfed
 	req:(1 painting:earned) and (1 hanabi:earned) and (333 fawksButton clicks)
 	on tick:multiply badluck by 0.99
