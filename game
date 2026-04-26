@@ -43,16 +43,14 @@ Settings
 
 Layout
 	use default
-	*belongings
-		contains:Buildings
-		header:Belongings
+	//future: rename buildings to belongings
 
 Buttons
 	*fawksButton
 		name:Pat a fox|Pat foxes
 		desc:Pat this fox for good fortune!
 		on click:yield 1 bi
-		//no text
+		no text
 		show clicks
 		//icon:
 		lit
