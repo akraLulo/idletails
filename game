@@ -140,16 +140,16 @@ on tick:get 1 bi
 on tick:lose 0.3 badluck
 on tick:get 1 bi
 
-*masterwork|masterworks
-name:Masterwork find|Masterwork finds
-desc:Inspired at a community event, you bought this artwork on the spot.
-cost:1 hanabi
-//cost to sell: 0% or cant sell, etc.
-tags:handfed
-req:1 painting:earned
-req:333 fawksbutton clicks
-on tick:multiply badluck by 0.99
-on tick:get 10 bi
+	*masterwork|masterworks
+	name:Masterwork find|Masterwork finds
+	desc:Inspired at a community event, you bought this artwork on the spot.
+	cost:1 hanabi
+	//cost to sell: 0% or cant sell, etc.
+	tags:handfed
+	req:1 painting:earned
+	req:333 fawksbutton clicks
+	on tick:multiply badluck by 0.99
+	on tick:get 10 bi
 
 
 Upgrades
@@ -185,13 +185,13 @@ Upgrades
         req:999 fawksbutton clicks
         passive:multiply frequency of glow by 0.9
 
-//supernatural lineup
-*plantfood
-name:Plant food
-desc:Take special care of your money trees. (Double production speed of money trees)
-passive:multiply frequency of tree by 2
-req:9 trees
-cost:100 bi
+	//supernatural lineup
+	*plantfood
+	name:Plant food
+	desc:Take special care of your money trees. (Double production speed of money trees)
+	passive:multiply frequency of tree by 2
+	req:9 trees
+	cost:100 bi
 
 
     *cricket
@@ -269,18 +269,18 @@ passive:get 10 misfortune
         desc:Have 998 fortune
         req:998 bi
 
-*fireworks1
-name:Fleeting flowers
-desc:Earn your first hanabi
-req:1 hanabi
-*fireworks2
-name:Splendid display
-desc:Buy a work of art with hanabi
-req:1 masterwork
-*fireworks3
-name:Summer tail
-desc:Earn nine hanabi
-req:9 hanabi:earned
+	*fireworks1
+	name:Fleeting flowers
+	desc:Earn your first hanabi
+	req:1 hanabi
+	*fireworks2
+	name:Splendid display
+	desc:Buy a work of art with hanabi
+	req:1 masterwork
+	*fireworks3
+	name:Summer tail
+	desc:Earn nine hanabi
+	req:9 hanabi:earned
 
     *clickFox1
         name:Awww, it likes me
